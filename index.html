@@ -200,6 +200,7 @@
               href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20te%20contacto%20desde%20tu%20sitio%20web%20para%20consultar%20sobre%20tus%20servicios%20contables."
               target="_blank"
               rel="noopener"
+              onclick="gtag('event', 'click_whatsapp', { section: 'hero' });"
             >
               <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor">
                 <path
@@ -268,6 +269,7 @@
               <a
                 class="card-cta"
                 href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Alta%20de%20Monotributo.%20Gracias!"
+                onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'alta_monotributo' });"
                 target="_blank"
                 rel="noopener"
               >
@@ -307,6 +309,7 @@
               <a
                 class="card-cta"
                 href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Responsable%20Inscripto.%20Gracias!"
+                onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'responsable_inscripto' });"
                 target="_blank"
                 rel="noopener"
               >
@@ -342,6 +345,7 @@
               <a
                 class="card-cta"
                 href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Jubilaciones%20y%20Retiro.%20Gracias!"
+                onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'jubilaciones' });"
                 target="_blank"
                 rel="noopener"
               >
@@ -361,6 +365,7 @@
             <a
               class="card-cta"
               href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Liquidaci%C3%B3n%20de%20Sueldos.%20Gracias!"
+              onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'liquidacion_sueldos' });"
               target="_blank"
               rel="noopener"
             >
@@ -378,6 +383,7 @@
             <a
               class="card-cta"
               href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Impuestos%20Anuales.%20Gracias!"
+              onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'impuestos_anuales' });"
               target="_blank"
               rel="noopener"
             >
@@ -395,6 +401,7 @@
             <a
               class="card-cta"
               href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Planes%20de%20Pago%20ARCA.%20Gracias!"
+              onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'planes_pago_arca' });"
               target="_blank"
               rel="noopener"
             >
@@ -412,6 +419,7 @@
             <a
               class="card-cta"
               href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20quisiera%20consultar%20sobre%20Certificaciones%20y%20Tr%C3%A1mites.%20Gracias!"
+              onclick="gtag('event', 'click_whatsapp', { section: 'servicios', service: 'certificaciones' });"
               target="_blank"
               rel="noopener"
             >
@@ -456,6 +464,7 @@
             class="btn btn--outline-dark"
             href=""
             onclick="
+              gtag('event', 'click_calendly', { section: 'sobre_mi' });
               Calendly.initPopupWidget({
                 url: 'https://calendly.com/candelaria-contadora/30min',
               });
@@ -505,6 +514,7 @@
           href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20te%20contacto%20desde%20tu%20sitio%20web%20para%20consultar%20sobre%20tus%20servicios%20contables."
           target="_blank"
           rel="noopener"
+          onclick="gtag('event', 'click_whatsapp', { section: 'contacto' });"
         >
           <div class="channel-icon">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
@@ -548,6 +558,7 @@
           class="channel channel--calendly"
           href=""
           onclick="
+            gtag('event', 'click_calendly', { section: 'contacto' });
             Calendly.initPopupWidget({
               url: 'https://calendly.com/candelaria-contadora/30min',
             });
@@ -583,6 +594,7 @@
       target="_blank"
       rel="noopener"
       aria-label="Contactar por WhatsApp"
+      onclick="gtag('event', 'click_whatsapp', { section: 'floating_button' });"
     >
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
         <path

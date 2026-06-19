@@ -278,6 +278,7 @@
               href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20te%20contacto%20desde%20tu%20sitio%20web%20para%20consultar%20sobre%20tus%20servicios%20contables."
               target="_blank"
               rel="noopener"
+              onclick="gtag('event', 'click_whatsapp', { section: 'blog', article: 'que_necesita_tu_contador' });"
             >
               Escribir por WhatsApp
             </a>
@@ -285,6 +286,7 @@
               class="btn btn--outline-dark"
               href=""
               onclick="
+                gtag('event', 'click_calendly', { section: 'blog', article: 'que_necesita_tu_contador' });
                 Calendly.initPopupWidget({
                   url: 'https://calendly.com/candelaria-contadora/30min',
                 });
