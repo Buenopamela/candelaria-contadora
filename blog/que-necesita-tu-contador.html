@@ -252,17 +252,42 @@
         </p>
 
         <div class="article-cta">
-          <a
-            class="btn btn--wa"
-            href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20le%C3%ed%20tu%20gu%C3%ADa%20sobre%20la%20primera%20consulta%20y%20quisiera%20agendar%20una%20reuni%C3%B3n."
-            target="_blank"
-            rel="noopener"
-          >
-            Agendar mi consulta gratuita
-          </a>
+          <p class="article-cta-label">Elegí cómo querés continuar:</p>
+          <div class="article-cta-buttons">
+            <a
+              class="btn btn--wa"
+              href="https://wa.me/5491168771067?text=Hola%20Candelaria%2C%20le%C3%ed%20tu%20gu%C3%ADa%20sobre%20la%20primera%20consulta%20y%20quisiera%20agendar%20una%20reuni%C3%B3n."
+              target="_blank"
+              rel="noopener"
+            >
+              Escribir por WhatsApp
+            </a>
+            <a
+              class="btn btn--outline-dark"
+              href=""
+              onclick="
+                Calendly.initPopupWidget({
+                  url: 'https://calendly.com/candelaria-contadora/30min',
+                });
+                return false;
+              "
+            >
+              Agendar consulta gratuita
+            </a>
+          </div>
         </div>
       </div>
     </main>
+
+    <!-- Calendly widget assets -->
+    <link
+      href="https://assets.calendly.com/assets/external/widget.css"
+      rel="stylesheet"
+    />
+    <script
+      src="https://assets.calendly.com/assets/external/widget.js"
+      async
+    ></script>
 
     <footer class="footer">
       <div class="footer-inner">

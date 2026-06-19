@@ -117,6 +117,19 @@
   text-align: center;
 }
 
+.article-cta-label {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 1.25rem;
+}
+
+.article-cta-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
 @media (max-width: 640px) {
   .article {
     padding: 7rem 1.25rem 3.5rem;
