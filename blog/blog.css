@@ -1,0 +1,124 @@
+/* ================================
+   BLOG ARTICLE STYLES
+   Reutiliza variables definidas en ../styles.css
+================================ */
+
+.article {
+  padding: 8.5rem 1.5rem 5rem;
+  background-color: var(--cream);
+}
+
+.article-inner {
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.article-breadcrumb {
+  font-size: 0.9rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+}
+
+.article-breadcrumb a {
+  color: var(--sand-dark);
+  text-decoration: none;
+}
+
+.article-breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.article-eyebrow {
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sand-dark);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.article-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  line-height: 1.2;
+  color: var(--dark);
+  margin-bottom: 1rem;
+}
+
+.article-title em {
+  font-style: italic;
+  color: var(--sand-dark);
+}
+
+.article-meta {
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 2.5rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--light);
+}
+
+.article-lead {
+  font-size: 1.15rem;
+  line-height: 1.75;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+}
+
+.article h2 {
+  font-family: var(--font-serif);
+  font-size: clamp(1.4rem, 3vw, 1.75rem);
+  color: var(--dark);
+  margin-top: 2.75rem;
+  margin-bottom: 1rem;
+}
+
+.article p {
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--dark);
+  margin-bottom: 1.25rem;
+}
+
+.article ul {
+  margin: 0 0 1.5rem 0;
+  padding-left: 1.25rem;
+}
+
+.article ul li {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--dark);
+  margin-bottom: 0.85rem;
+  padding-left: 0.25rem;
+}
+
+.article ul li strong {
+  color: var(--sand-dark);
+}
+
+.article-callout {
+  background-color: var(--beige);
+  border-left: 4px solid var(--sand);
+  border-radius: var(--radius);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+
+.article-callout p {
+  margin-bottom: 0;
+  font-size: 1rem;
+}
+
+.article-cta {
+  margin-top: 3rem;
+  padding-top: 2.5rem;
+  border-top: 1px solid var(--light);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .article {
+    padding: 7rem 1.25rem 3.5rem;
+  }
+}
