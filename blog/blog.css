@@ -135,3 +135,48 @@
     padding: 7rem 1.25rem 3.5rem;
   }
 }
+
+/* ================================
+   BLOG INDEX LIST
+================================ */
+
+.blog-index-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.blog-index-item {
+  display: block;
+  background-color: var(--white);
+  border: 1px solid var(--light);
+  border-radius: var(--radius);
+  padding: 2rem;
+  text-decoration: none;
+  transition: box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.blog-index-item:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.blog-index-item h2 {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  color: var(--dark);
+  margin: 0 0 0.75rem;
+}
+
+.blog-index-item p {
+  font-size: 1rem;
+  color: var(--muted);
+  margin-bottom: 1rem;
+}
+
+.blog-index-link {
+  font-weight: 600;
+  color: var(--sand-dark);
+  font-size: 0.95rem;
+}
