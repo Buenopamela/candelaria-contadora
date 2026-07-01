@@ -548,15 +548,97 @@
           <p class="eyebrow">Testimonios</p>
           <h2 class="section-title">Lo que dicen mis clientes</h2>
         </div>
-        <div class="reviews-grid">
-          <blockquote class="review">
-            <p>"Excelente profesional, muy clara y ordenada."</p>
-            <cite>— Cliente Monotributo</cite>
-          </blockquote>
-          <blockquote class="review">
-            <p>"Me dio tranquilidad desde el primer día."</p>
-            <cite>— Cliente Autónomo</cite>
-          </blockquote>
+        <div class="reviews-carousel">
+          <div class="reviews-track" id="reviewsTrack">
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Súper práctica, rápida y te ayuda en todo lo que necesites. 100% recomendable."</p>
+              <cite>
+                Macarena
+                <span class="review-service">Alta Monotributo</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Fue una buena experiencia contactarla, ya que me resolvió el problema súper rápido y de forma muy profesional."</p>
+              <cite>
+                Gimena
+                <span class="review-service">Asesoramiento contable</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Muy responsable, excelente trato, altamente recomendable."</p>
+              <cite>
+                Miriam Lorena
+                <span class="review-service">Asesoramiento contable</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Estoy muy conforme con el servicio. Siempre tenés muy buena predisposición para responder consultas y mucha paciencia hasta aclarar todas las dudas. Super recomendable."</p>
+              <cite>
+                Susana Rodríguez
+                <span class="review-service">Alta Monotributo</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Excelente asesoramiento y disposición."</p>
+              <cite>
+                Valeria
+                <span class="review-service">Liquidación de Sueldos</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Una genia Cande! Por sobre todo rápida — necesitaba una liquidación por despido y ella me la armó el mismo día. La súper recomiendo!"</p>
+              <cite>
+                Noé
+                <span class="review-service">Liquidación Final</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Muy buen servicio, recomendable, atenta a todo."</p>
+              <cite>
+                Lucas
+                <span class="review-service">Alta Monotributo</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Es excelente, super resolutiva y amable. ¡La recomiendo!"</p>
+              <cite>
+                Jesica
+                <span class="review-service">Revisión Fiscal</span>
+              </cite>
+            </blockquote>
+
+            <blockquote class="review">
+              <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+              <p>"Excelente trabajo, explicando cada detalle y llenándonos de información para saber qué hacer y qué no cada mes. Responsable y confiable a la hora de cualquier trámite."</p>
+              <cite>
+                Abigail
+                <span class="review-service">Alta Monotributo</span>
+              </cite>
+            </blockquote>
+
+          </div>
+
+          <div class="reviews-nav">
+            <button class="reviews-btn" id="reviewsPrev" aria-label="Reviews anteriores">‹</button>
+            <div class="reviews-dots" id="reviewsDots"></div>
+            <button class="reviews-btn" id="reviewsNext" aria-label="Reviews siguientes">›</button>
+          </div>
         </div>
       </div>
     </section>
@@ -713,6 +795,73 @@
       window.addEventListener("scroll", () => {
         nav.classList.toggle("nav--scrolled", window.scrollY > 60);
       });
+
+      // Reviews carousel
+      (function () {
+        const track = document.getElementById("reviewsTrack");
+        if (!track) return;
+        const cards = Array.from(track.querySelectorAll(".review"));
+        const prevBtn = document.getElementById("reviewsPrev");
+        const nextBtn = document.getElementById("reviewsNext");
+        const dotsWrap = document.getElementById("reviewsDots");
+        let current = 0;
+
+        function perPage() {
+          return window.innerWidth <= 768 ? 1 : 3;
+        }
+
+        function totalPages() {
+          return Math.ceil(cards.length / perPage());
+        }
+
+        function getOffset(page) {
+          const card = cards[page * perPage()];
+          return card ? card.offsetLeft : 0;
+        }
+
+        function buildDots() {
+          dotsWrap.innerHTML = "";
+          for (let i = 0; i < totalPages(); i++) {
+            const btn = document.createElement("button");
+            btn.className = "reviews-dot" + (i === current ? " is-active" : "");
+            btn.setAttribute("aria-label", "Página " + (i + 1));
+            btn.addEventListener("click", () => goTo(i));
+            dotsWrap.appendChild(btn);
+          }
+        }
+
+        function goTo(page) {
+          current = Math.max(0, Math.min(page, totalPages() - 1));
+          track.style.transform = "translateX(-" + getOffset(current) + "px)";
+          buildDots();
+          prevBtn.disabled = current === 0;
+          nextBtn.disabled = current >= totalPages() - 1;
+        }
+
+        prevBtn.addEventListener("click", () => goTo(current - 1));
+        nextBtn.addEventListener("click", () => goTo(current + 1));
+
+        // Swipe support para mobile
+        let touchStartX = null;
+        track.addEventListener("touchstart", (e) => {
+          touchStartX = e.touches[0].clientX;
+        }, { passive: true });
+        track.addEventListener("touchend", (e) => {
+          if (touchStartX === null) return;
+          const dx = e.changedTouches[0].clientX - touchStartX;
+          if (Math.abs(dx) > 50) dx < 0 ? goTo(current + 1) : goTo(current - 1);
+          touchStartX = null;
+        });
+
+        // Reset en resize para recalcular perPage y offsets
+        let resizeTimer;
+        window.addEventListener("resize", () => {
+          clearTimeout(resizeTimer);
+          resizeTimer = setTimeout(() => { current = 0; goTo(0); }, 100);
+        });
+
+        requestAnimationFrame(() => goTo(0));
+      })();
     </script>
     <script src="nav.js"></script>
   </body>
