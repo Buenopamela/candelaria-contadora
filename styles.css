@@ -584,13 +584,21 @@ a {
   padding: var(--section-py) 2rem;
 }
 
-.reviews-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+.reviews-carousel {
+  overflow: hidden;
+  position: relative;
+}
+
+.reviews-track {
+  display: flex;
   gap: 2rem;
+  transition: transform 0.4s ease;
+  will-change: transform;
 }
 
 .review {
+  flex: 0 0 calc((100% - 4rem) / 3);
+  min-width: 0;
   background: var(--white);
   border-radius: var(--radius);
   padding: 2.5rem 2rem 2rem;
@@ -598,22 +606,96 @@ a {
   box-shadow: var(--shadow);
 }
 
+.review-stars {
+  color: var(--sand-dark);
+  font-size: 0.9rem;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+}
+
 .review p {
   font-family: var(--font-serif);
   font-style: italic;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   color: var(--dark);
   margin-bottom: 1.25rem;
   line-height: 1.55;
 }
 
 .review cite {
+  display: block;
   font-size: 0.75rem;
   font-style: normal;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: var(--sand);
   font-weight: 500;
+}
+
+.review-service {
+  display: block;
+  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted);
+  font-weight: 400;
+}
+
+.reviews-nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.reviews-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 50%;
+  border: 1.5px solid var(--light);
+  background: var(--white);
+  color: var(--dark);
+  font-size: 1.4rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.2s, background 0.2s;
+  flex-shrink: 0;
+}
+
+.reviews-btn:hover:not(:disabled) {
+  border-color: var(--sand);
+  background: var(--beige);
+}
+
+.reviews-btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.reviews-dots {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.reviews-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--light);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.reviews-dot.is-active {
+  background: var(--sand);
+  transform: scale(1.4);
 }
 
 /* ================================
@@ -898,8 +980,12 @@ a {
     gap: 2.5rem;
   }
 
-  .reviews-grid {
-    grid-template-columns: 1fr;
+  .review {
+    flex: 0 0 100%;
+  }
+
+  .reviews-dots {
+    display: none;
   }
 
   .fab-wa {
